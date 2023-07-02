@@ -3,6 +3,7 @@ import { Check, Trash } from 'phosphor-react';
 
 import styles from './TaskCard.module.css'
 import { TaskManipulatorProps } from '../utils/interfaces';
+import { getSortedTaskList } from '../utils/getSortedList';
 
 export type TaskType = {
 	id: string;
@@ -16,25 +17,6 @@ interface TaskCardProps extends TaskManipulatorProps {
 
 export const TaskCard = ({ task, currentTaskList, setTasksState }: TaskCardProps) => {
 	const [isTaskCompleted, setIsTaskCompleted] = useState<boolean>(task.isCompleted)
-
-	function getSortedTaskList(listToSort: TaskType[]): TaskType[] {
-		return listToSort.sort((a, b) => {
-			// Se a.isCompleted for falso e b.isCompleted for verdadeiro,
-			// colocamos a antes de b (ordenando a em primeiro lugar)
-			if (!a.isCompleted && b.isCompleted) {
-				return -1;
-			}
-
-			// Se b.isCompleted for falso e a.isCompleted for verdadeiro,
-			// colocamos b antes de a (ordenando b em primeiro lugar)
-			if (a.isCompleted && !b.isCompleted) {
-				return 1;
-			}
-
-			// Caso contrário, mantemos a ordem original
-			return 0;
-		});
-	}
 
 	function handleChange(event: ChangeEvent<HTMLInputElement>) {
 		setIsTaskCompleted(event.target.checked)

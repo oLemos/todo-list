@@ -3,14 +3,25 @@ import { PlusCircle } from 'phosphor-react'
 import { v4 as uuid } from 'uuid';
 
 import styles from './CreateForm.module.css'
+
 import { TaskManipulatorProps } from '../utils/interfaces';
+import { getSortedTaskList } from '../utils/getSortedList';
 
 export const CreateForm = ({ currentTaskList, setTasksState }: TaskManipulatorProps) => {
 	const [taskText, setTaskText] = useState<string>('')
 
 	function handleCreateNewTask(event: FormEvent) {
 		event.preventDefault();
-		setTasksState([...currentTaskList, { id: uuid(), isCompleted: false, text: taskText }])
+
+		const newTask = { id: uuid(), isCompleted: false, text: taskText }
+
+		if (currentTaskList.length > 0) {
+			const taskListToSort = [...currentTaskList, newTask]
+			setTasksState(getSortedTaskList(taskListToSort))
+		} else {
+			setTasksState([...currentTaskList, newTask])
+		}
+
 		setTaskText('')
 	}
 
