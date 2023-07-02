@@ -1,0 +1,63 @@
+.card {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+
+	width: 100%;
+	background-color: var(--gray-500);
+	border-radius: 8px;
+	padding: 1rem;
+}
+
+.card input[type="checkbox"] {
+	appearance: none;
+	width: 1.5rem;
+	height: 1.5rem;
+	border-radius: 100%;
+	border: 2px solid var(--blue-500);
+	cursor: pointer;
+}
+
+.card input[type="checkbox"]:hover {
+	border: 2px solid var(--blue-700);
+	background: rgba(30, 111, 159, 0.2);
+}
+
+.card input[type="checkbox"]:checked {
+	border: none;
+	background: var(--purple-700);
+}
+
+.card input[type="checkbox"]:checked:hover {
+	border: none;
+	background: var(--purple-500);
+}
+
+.card label {
+	position: relative;
+}
+
+.checkboxIcon {
+	position: absolute;
+	left: 1px;
+	top: 2px;
+	cursor: pointer;
+}
+
+.card > button {
+	background: transparent;
+	border: none;
+	color: var(--gray-300);
+
+	transition: color 0.2s;
+}
+
+.card > button:hover {
+	color: var(--red-500);
+	cursor: pointer;
+}
+
+.completedTaskText {
+	text-decoration: line-through;
+	color: var(--gray-300);
+}

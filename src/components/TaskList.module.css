@@ -1,0 +1,56 @@
+.tasks {
+	width: 46rem;
+	margin-top: 4rem;
+}
+
+@media (max-width: 768px) {
+	.tasks {
+		width: 100%;
+	}
+}
+
+.summary {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 1.5rem;
+}
+
+.summary > div span {
+	color: var(--gray-100);
+	background-color: var(--gray-400);
+	padding: 0 0.5rem;
+	border-radius: 10px;
+}
+
+.created {
+	color: var(--blue-500);
+	display: flex;
+	gap: 0.5em;
+}
+
+.completed {
+	color: var(--purple-500);
+	display: flex;
+	gap: 0.5em;
+}
+
+.emptyList {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	color: var(--gray-300);
+	padding-top: 4rem;
+	border-top: 1px solid var(--gray-400);
+}
+
+.emptyList img {
+	margin-bottom: 1rem;
+}
+
+.filledList {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+}
